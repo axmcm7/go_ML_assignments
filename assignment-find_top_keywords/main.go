@@ -20,7 +20,7 @@ func errIsNil(err error) {
 }
 
 // converts the news.json file into a Qframe dataframe
-func readInCsvData() qframe.QFrame {
+func readInJsonData() qframe.QFrame {
 	jsonFile, err := os.Open("./news.json")
 	errIsNil(err)
 
@@ -76,7 +76,7 @@ func main() {
 	numTopKeywordPhrases, err := strconv.Atoi(os.Args[1])
 	errIsNil(err)
 
-	df := readInCsvData()
+	df := readInJsonData()
 	allTexts := makeCorpusTextString(df)
 
 	// limit the output to the top K keyword phrases
