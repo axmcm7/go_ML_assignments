@@ -29,6 +29,8 @@ for col in num_cols:
 # clean up categorical variable values for "Item_Fat_Content"
 train_df = train_df.replace(
     {"Item_Fat_Content": {"LF": "Low Fat", "low fat": "Low Fat", "reg": "Regular"}})
+test_df = test_df.replace(
+    {"Item_Fat_Content": {"LF": "Low Fat", "low fat": "Low Fat", "reg": "Regular"}})
 
 def convert_to_categoricals(df, col):
     x_pandas = pd.get_dummies(df[col])
