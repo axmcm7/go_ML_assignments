@@ -14,16 +14,27 @@ Questions to answer:
 ====================
 1.  What steps should be taken for pre-processing the data?
 
+    In my `preprocess_data.py` script I first dropped the "Item_Identifier" column, because it immediately jumped out to me that this column would not be useful in predicting sales on the test set. I then filled missing values depending on the type of each column: if categorical, I filled them with the mode value. If numerical, I filled them with the mean value of the column.
+    I noticed that "Item_Fat_Content" had inconsistent labeling (I checked the other columns as well), so I manually cleaned up the labels. I then one-hot encoded the categorical variables, then reordered the columns and dropped the "Outlet_Establishment_Year" column.
+
 2.  Explain your modeling approach:
 
     a.  Choice of ML algorithm
 
+    I decided to use basic linear regression because this appeared to be a fairly standard regression problem. I tried various Go library implementations of linear regression, finding each had its pros and cons. The [implementation]('https://github.com/sajari/regression') I ultimately used was fairly straightforward to use, with the caveat that it lacked advanced functionality such as being able to use l1 or l2 regularization to constrain the resultant weights.
+
     b.  Feature Selection
+
+    I didn't have too much time to spend experimenting with feature selection, so I instead used my intuition in dropping several columns that logically should not be causally related to an item's sales. With more time, I could've played around with the [regression library's]('https://github.com/sajari/regression') feature crosses, which allow for more complex regression models.
 
 3.  How would you evaluate the performance of your model? Explain the
     choice of metrics used.
 
+    I evaluated the performance of my model on the R-squared value, which came out to be 0.568868, a decent value for a regression analysis. My coefficients turned out to be larger than I anticipated, which I suspect is partly due to my Go library's implementation of regression in conjunction with my preprocessed training data containing many one-hot encoded variables.
+
 4.  Show plots for visualizing your model performance.
+
+    I did not have the time to learn a Go visualization library for this part. In python, this would have been much more straightforward and easy, not least due to the multitude of great visualization libraries available.
 
 Data:
 =====

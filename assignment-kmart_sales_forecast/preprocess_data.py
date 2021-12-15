@@ -8,7 +8,6 @@ test_df = pd.read_csv("./test_kmart.csv")
 train_df = train_df.drop(labels=["Item_Identifier"], axis=1)
 test_df = test_df.drop(labels=["Item_Identifier"], axis=1)
 
-
 cat_cols = ["Item_Fat_Content", "Item_Type", "Outlet_Identifier", "Outlet_Size", "Outlet_Location_Type", "Outlet_Type"]
 num_cols = ["Item_Weight", "Item_Visibility", "Item_MRP", "Outlet_Establishment_Year", "Item_Outlet_Sales"]
 
@@ -47,8 +46,24 @@ for col in cat_cols:
     train_df = convert_to_categoricals(train_df, col)
     test_df = convert_to_categoricals(test_df, col)
 
-    
-print(train_df.head(10))
+# place observed (dependent) variable as the last col
+train_df["Sales"] = train_df["Item_Outlet_Sales"]
+train_df.drop("Item_Outlet_Sales", axis=1, inplace=True)
+
+# feature selection--columns to drop:
+train_df.drop(["Outlet_Establishment_Year"], axis=1, inplace=True)
+test_df.drop(["Outlet_Establishment_Year"], axis=1, inplace=True)
+
+
+# normalize the data using mean normalization
+#train_df = (train_df - train_df.mean()) / train_df.std()
+#test_df = (test_df - test_df.mean()) / test_df.std()
+
+# normalize the data using min-max normalization
+#train_df = (train_df - train_df.min()) / (train_df.max() - train_df.min()) 
+#test_df = (test_df - test_df.min()) / (test_df.max() - test_df.min())
 
 train_df.to_json("./train.json", orient="records")
 test_df.to_json("./test.json", orient="records")
+#train_df.to_csv("./train.csv")
+#test_df.to_csv("./test.csv")

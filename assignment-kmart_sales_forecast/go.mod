@@ -2,23 +2,21 @@ module example.com/kmartSalesForecast
 
 go 1.17
 
-require github.com/tobgu/qframe v0.3.6
+require (
+	github.com/sajari/regression v1.0.1
+	github.com/sjwhitworth/golearn v0.0.0-20211014193759-a8b69c276cd8
+	github.com/tobgu/qframe v0.3.6
+)
 
 require (
-	gioui.org v0.0.0-20210308172011-57750fc8a0a6 // indirect
-	github.com/ajstarks/svgo v0.0.0-20210923152817-c3b6e2f0c527 // indirect
-	github.com/fogleman/gg v1.3.0 // indirect
-	github.com/go-fonts/liberation v0.2.0 // indirect
-	github.com/go-latex/latex v0.0.0-20210823091927-c0d11ff05a81 // indirect
-	github.com/go-pdf/fpdf v0.5.0 // indirect
-	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
+	github.com/gonum/blas v0.0.0-20181208220705-f22b278b28ac // indirect
+	github.com/google/go-cmp v0.4.0 // indirect
+	github.com/guptarohit/asciigraph v0.5.1 // indirect
+	github.com/mattn/go-runewidth v0.0.7 // indirect
 	github.com/mauricelam/genny v0.0.0-20190320071652-0800202903e5 // indirect
-	github.com/sajari/regression v1.0.1 // indirect
-	golang.org/x/exp v0.0.0-20191002040644-a1355ae1e2c3 // indirect
-	golang.org/x/image v0.0.0-20210628002857-a66eb6448b8d // indirect
-	golang.org/x/sys v0.0.0-20210304124612-50617c2ba197 // indirect
-	golang.org/x/text v0.3.6 // indirect
+	github.com/olekukonko/tablewriter v0.0.4 // indirect
+	github.com/rocketlaunchr/dataframe-go v0.0.0-20201007021539-67b046771f0b // indirect
+	golang.org/x/exp v0.0.0-20200331195152-e8c3332aa8e5 // indirect
+	golang.org/x/sync v0.0.0-20200317015054-43a5402ce75a // indirect
 	gonum.org/v1/gonum v0.9.3 // indirect
-	gonum.org/v1/plot v0.10.0 // indirect
-	rsc.io/pdf v0.1.1 // indirect
 )
